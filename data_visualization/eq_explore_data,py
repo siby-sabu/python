@@ -1,0 +1,14 @@
+import json
+filename = 'data/eq_data_1_day_m1.json'
+with open(filename) as f:
+    file_cnt = json.load(f)
+    features_dict = file_cnt['features']
+
+    mag, lon, lat = [], [], []
+    for feature in features_dict:
+        mag.append(feature['properties']['mag'])
+        lon.append(feature['geometry']['coordinates'][0])
+        lat.append(feature['geometry']['coordinates'][1])
+    print(mag[:10])
+    print(lon[:10])
+    print(lat[:10])
